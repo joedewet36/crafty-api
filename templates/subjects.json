@@ -1,0 +1,4 @@
+{
+  "autoReply": "Thank you for contacting Crafty Design Studio",
+  "businessNotification": "New Contact Form Submission - <%= subject %>"
+}
