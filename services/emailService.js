@@ -23,7 +23,7 @@ function loadSubjects() {
 }
 
 function getLogoBuffer() {
-  const logoPath = path.join(ASSETS_DIR, 'logo5.png');
+  const logoPath = path.join(ASSETS_DIR, 'logo5.jpg');
   if (!fs.existsSync(logoPath)) return null;
   const buffer = fs.readFileSync(logoPath);
   return buffer;
