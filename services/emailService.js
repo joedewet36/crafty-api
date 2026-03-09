@@ -36,7 +36,7 @@ function buildTransporter() {
   return nodemailer.createTransport(opts);
 }
 
-async function sendContactAndAutoReply({ name, email, phone, subject, message }) {
+async function sendContactAndAutoReply({ name, email, phone, subject, message, package: pkg }) {
   const transporter = buildTransporter();
 
   const businessTpl = loadTemplate('contact-notification');
@@ -54,8 +54,8 @@ async function sendContactAndAutoReply({ name, email, phone, subject, message })
   }
 
   // Prepare business email
-  const businessHtml = ejs.render(businessTpl.html, { name, email, phone, subject, message });
-  const businessText = ejs.render(businessTpl.text, { name, email, phone, subject, message });
+  const businessHtml = ejs.render(businessTpl.html, { name, email, phone, subject, message, package: pkg });
+  const businessText = ejs.render(businessTpl.text, { name, email, phone, subject, message, package: pkg });
   const businessSubject = ejs.render(subjects.businessNotification, { subject });
 
   const businessMail = {
@@ -72,8 +72,8 @@ async function sendContactAndAutoReply({ name, email, phone, subject, message })
   await transporter.sendMail(businessMail);
 
   // Prepare auto-reply
-  const autoHtml = ejs.render(autoTpl.html, { name, email, phone, subject, message });
-  const autoText = ejs.render(autoTpl.text, { name, email, phone, subject, message });
+  const autoHtml = ejs.render(autoTpl.html, { name, email, phone, subject, message, package: pkg });
+  const autoText = ejs.render(autoTpl.text, { name, email, phone, subject, message, package: pkg });
   const autoSubject = subjects.autoReply;
 
   const autoMail = {

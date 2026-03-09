@@ -11,7 +11,7 @@ function sanitizeInput(value) {
 
 async function handleContact(request, reply) {
   try {
-    const { name, email, phone, subject, message } = request.body || {};
+    const { name, email, phone, subject, message, package: pkg } = request.body || {};
 
     if (!name || !email || !phone || !subject || !message) {
       return reply.status(400).send({ success: false, message: 'All fields are required' });
@@ -26,7 +26,8 @@ async function handleContact(request, reply) {
       email: sanitizeInput(email),
       phone: sanitizeInput(phone),
       subject: sanitizeInput(subject),
-      message: sanitizeInput(message)
+      message: sanitizeInput(message),
+      package: pkg ? sanitizeInput(pkg) : ''
     };
 
     await emailService.sendContactAndAutoReply(payload);
