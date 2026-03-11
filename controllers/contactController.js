@@ -12,7 +12,7 @@ function sanitizeInput(value) {
 async function handleContact(request, reply) {
   try {
     const { name, email, phone, subject, message, package: pkg } = request.body || {};
-
+    console.log('package :', pkg);
     if (!name || !email || !phone || !subject || !message) {
       return reply.status(400).send({ success: false, message: 'All fields are required' });
     }

@@ -18,7 +18,6 @@
                 src="cid:craftylogo@craftydesignstudio"
                 alt="Crafty Logo"
                 style="width: 60%; height: auto" />
-          
             </td>
           </tr>
           <tr>
@@ -42,6 +41,7 @@
               </p>
 
               <ol style="color: #555555; font-size: 14px; line-height: 1.8">
+                <% if (!package || package.trim() === '') { %>
                 <li>
                   <strong>Plan you prefer:</strong> Please check our Pricing tab
                   on our website and let us know which plan suits you best.<a
@@ -49,10 +49,76 @@
                     >Pricing Link</a
                   >
                 </li>
+                <% } else if (package === 'silver') { %>
+                <li>
+                  <strong>You Selected the Silver Package, link here : </strong>
+                  <a
+                    href="https://www.craftydesignstudio.co.za/#/pricing/silver"
+                    >Silver Package</a
+                  >
+                  <p>
+                    We require a 50% deposit for us to start with your website
+                    and process and 50% when done . <br />
+                    <strong>Deposit : </strong> : R 2500 <br />
+                    <strong>Reference : </strong> <%= email %> <br />
+                    <strong>Bank Name : </strong>Discovery Bank <br /><strong
+                      >Account No :</strong
+                    >
+                    16891737703 <br /><strong>Name :</strong> Crafty Design
+                    Studio <br /><strong>Branch Code :</strong> 679000
+                    <br /><strong>Account Type :</strong> Cheque Account
+                    <br /><strong>Send Proof of Payment to :</strong>
+                    info@craftydesignstudio.co.za
+                  </p>
+                </li>
+                <% } else if (package === 'bronze') { %>
+                <li>
+                  <strong>You Selected the Bronze Package, link here : </strong>
+                  <a
+                    href="https://www.craftydesignstudio.co.za/#/pricing/bronze"
+                    >Bronze Package</a
+                  >
+                  <p>
+                    We require a 50% deposit for us to start with your website
+                    and process and 50% when done . <br />
+                    <strong>Deposit : </strong> : R 1250 <br />
+                    <strong>Reference : </strong> <%= email %> <br />
+                    <strong>Bank Name : </strong>Discovery Bank <br /><strong
+                      >Account No :</strong
+                    >
+                    16891737703 <br /><strong>Name :</strong> Crafty Design
+                    Studio <br /><strong>Branch Code :</strong> 679000
+                    <br /><strong>Account Type :</strong> Cheque Account
+                    <br /><strong>Send Proof of Payment to :</strong>
+                    info@craftydesignstudio.co.za
+                  </p>
+                </li>
+                <% } else if (package === 'gold') { %>
+                <li>
+                  <strong>You Selected the Gold Package, link here : </strong>
+                  <a href="https://www.craftydesignstudio.co.za/#/pricing/gold"
+                    >Gold Package</a
+                  >
+                  <p>
+                    We require a 50% deposit for us to start with your website
+                    and process and 50% when done . <br />
+                    <strong>Deposit : </strong> : R 4000 <br />
+                    <strong>Reference : </strong> <%= email %> <br />
+                    <strong>Bank Name : </strong>Discovery Bank <br /><strong
+                      >Account No :</strong
+                    >
+                    16891737703 <br /><strong>Name :</strong> Crafty Design
+                    Studio <br /><strong>Branch Code :</strong> 679000
+                    <br /><strong>Account Type :</strong> Cheque Account
+                    <br /><strong>Send Proof of Payment to :</strong>
+                    info@craftydesignstudio.co.za
+                  </p>
+                </li>
+                <% } %>
                 <li>
                   <strong>Short description of the website you need:</strong>
-                  Example: “5-page business website for a plumbing company with
-                  contact form and gallery.”
+                  Example: “Business website for a plumbing company with contact
+                  form and gallery.
                 </li>
                 <li>
                   <strong>Existing website or example:</strong> If you have a
@@ -79,7 +145,8 @@
               </ol>
 
               <p style="color: #555555; font-size: 14px; line-height: 1.6">
-                You can also book a Zoom consultation with our
+                Once you send us an email with all the details above and made
+                your deposit ,you can book a Zoom consultation with our
                 developer/designer to discuss your project in detail:
               </p>
 
