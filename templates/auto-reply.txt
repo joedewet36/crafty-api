@@ -6,7 +6,6 @@ Your message:
 <%= message %>
 
 Visit our website: https://www.craftydesignstudio.co.za
-
 Crafty Design Studio
 Tel: +27 21 555 0123
 Email: info@craftydesignstudio.co.za
