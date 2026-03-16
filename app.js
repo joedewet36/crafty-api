@@ -46,4 +46,16 @@ async function buildApp() {
   return app;
 }
 
-module.exports = buildApp();
+if (require.main === module) {
+  buildApp().then((app) => {
+    app.listen({ port: process.env.PORT || 5000, host: '0.0.0.0' }, (err) => {
+      if (err) {
+        app.log.error(err);
+        process.exit(1);
+      }
+      console.log(`Server listening on ${app.server.address().port}`);
+    });
+  });
+}
+
+module.exports = buildApp;

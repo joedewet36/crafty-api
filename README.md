@@ -2,15 +2,15 @@
 
 Fastify-based REST API to receive contact form submissions and send emails (business notification + auto-reply).
 
-Quick start
+Quick start (Local Node.js)
 
 1. Copy `.env.example` to `.env` and update SMTP settings.
 
 2. (Optional) For local overrides create a `.env.local` file. The server loads `.env` first and then `.env.local` if present.
-2. Install dependencies:
+2. Install dependencies (ensure firebase-functions is installed):
 
 ```bash
-npm install
+npm install firebase-functions firebase-admin
 ```
 
 3. Start server:

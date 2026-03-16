@@ -5,8 +5,8 @@ const ejs = require('ejs');
 const { createTransportOptions } = require('../config/smtp');
 
 const FROM_EMAIL = process.env.FROM_EMAIL || 'info@craftydesignstudio.co.za';
-const ASSETS_DIR = path.join(process.cwd(), 'assets');
-const TEMPLATES_DIR = path.join(process.cwd(), 'templates');
+const ASSETS_DIR = path.join(__dirname, '../assets');
+const TEMPLATES_DIR = path.join(__dirname, '../templates');
 
 function loadTemplate(name) {
   const htmlPath = path.join(TEMPLATES_DIR, `${name}.html`);
