@@ -1,5 +1,10 @@
 const path = require("path");
-const Fastify = require("fastify");
+const fs = require('fs')
+const options = {
+  key: fs.readFileSync(path.join(__dirname, 'certs', 'server.key')),
+  cert: fs.readFileSync(path.join(__dirname, 'certs', 'server.crt'))
+}
+const Fastify = require("fastify")(options);
 const helmet = require("@fastify/helmet");
 const cors = require("@fastify/cors");
 const rateLimit = require("@fastify/rate-limit");
