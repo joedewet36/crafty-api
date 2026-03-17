@@ -1,10 +1,5 @@
 const path = require("path");
-const fs = require('fs')
-const options = {
-  key: fs.readFileSync(path.join(__dirname, 'certs', 'server.key')),
-  cert: fs.readFileSync(path.join(__dirname, 'certs', 'server.crt'))
-}
-const Fastify = require("fastify")(options);
+const Fastify = require("fastify");
 const helmet = require("@fastify/helmet");
 const cors = require("@fastify/cors");
 const rateLimit = require("@fastify/rate-limit");
@@ -55,7 +50,7 @@ async function buildApp() {
     reply.status(status).send({ success: false, message });
   });
   app.get("/", async (request, reply) => {
-    return { Iam: "Alive" };
+    return { Iam: "world" };
   });
 
   return app;
