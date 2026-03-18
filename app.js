@@ -50,7 +50,7 @@ async function buildApp() {
     reply.status(status).send({ success: false, message });
   });
   app.get("/", async (request, reply) => {
-    return { Iam: "world" };
+    return { API_Status: "All Good" };
   });
 
   return app;
