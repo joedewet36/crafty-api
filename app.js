@@ -15,7 +15,9 @@ async function buildApp() {
 
   // CORS - allow configured origin and localhost during development/npm start
   const clientOrigin =
-    process.env.CLIENT_ORIGIN || process.env.CLIENT_ORIGIN2;
+    process.env.CLIENT_ORIGIN || "https://www.craftydesignstudio.co.za";
+    const clientOrigin2 =
+    process.env.CLIENT_ORIGIN2 || "https://pc-docta.netlify.app";
   const allowLocalhost =
     (process.env.NODE_ENV || "").toLowerCase() !== "production" ||
     process.env.npm_lifecycle_event === "start";
@@ -25,6 +27,7 @@ async function buildApp() {
       // allow non-browser requests (like curl/postman) with no origin
       if (!origin) return cb(null, true);
       if (clientOrigin && origin === clientOrigin) return cb(null, true);
+      if (clientOrigin2 && origin === clientOrigin2) return cb(null, true);
       if (
         allowLocalhost &&
         /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)
