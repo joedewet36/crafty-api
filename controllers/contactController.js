@@ -11,9 +11,9 @@ function sanitizeInput(value) {
 
 async function handleContact(request, reply) {
   try {
-    const { name, email, phone, subject, message, package: pkg } = request.body || {};
-    console.log('package :', pkg);
-    if (!name || !email || !phone || !subject || !message) {
+    const { name, email, phone, subject, message,from,package: pkg } = request.body || {};
+    //console.log('package :', pkg);
+    if (!name || !email || !phone || !subject || !message || !from) {
       return reply.status(400).send({ success: false, message: 'All fields are required' });
     }
 
@@ -26,6 +26,7 @@ async function handleContact(request, reply) {
       email: sanitizeInput(email),
       phone: sanitizeInput(phone),
       subject: sanitizeInput(subject),
+      from: sanitizeInput(from),
       message: sanitizeInput(message),
       package: pkg ? sanitizeInput(pkg) : ''
     };
