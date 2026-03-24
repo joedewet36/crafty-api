@@ -15,7 +15,7 @@ async function buildApp() {
 
   // CORS - allow configured origin and localhost during development/npm start
   const clientOrigin =
-    process.env.CLIENT_ORIGIN || "https://www.craftydesignstudio.co.za";
+    process.env.CLIENT_ORIGIN || process.env.CLIENT_ORIGIN2;
   const allowLocalhost =
     (process.env.NODE_ENV || "").toLowerCase() !== "production" ||
     process.env.npm_lifecycle_event === "start";
